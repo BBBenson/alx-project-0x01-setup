@@ -1,48 +1,33 @@
-"use client"
-
 import type React from "react"
-
 import UserCard from "@/components/common/UserCard"
-import UserModal from "@/components/common/UserModal"
 import Header from "@/components/layout/Header"
 import type { UserProps } from "@/interfaces"
-import type { UserData } from "@/interfaces"
-import { useState } from "react"
 
-interface UsersPageProps {
-  posts: UserProps[]
-}
-
-const Users: React.FC<UsersPageProps> = ({ posts }) => {
-  const [isModalOpen, setModalOpen] = useState(false)
-  const [allUsers, setAllUsers] = useState<UserProps[]>(posts)
-
-  const handleAddUser = (newUser: UserData) => {
-    const userWithId = { ...newUser, id: allUsers.length + 1 }
-    setAllUsers([userWithId, ...allUsers])
-  }
-
+const Users: React.FC<{ posts: UserProps[] }> = ({ posts }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col h-screen">
       <Header />
-      <main className="p-4 flex-grow">
-        <div className="flex justify-between items-center mb-6">
+      <main className="p-4">
+        <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Users Content</h1>
-          <button
-            onClick={() => setModalOpen(true)}
-            className="bg-blue-700 px-4 py-2 rounded-full text-white hover:bg-blue-800 transition"
-          >
-            Add User
-          </button>
+          <button className="bg-blue-700 px-4 py-2 rounded-full text-white">Add User</button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {posts?.map((user: UserProps) => (
-            <UserCard key={user.id} {...user} />
+        <div className="grid grid-cols-3 gap-2">
+          {posts?.map((user: UserProps, key: number) => (
+            <UserCard
+              key={key}
+              id={user.id}
+              name={user.name}
+              username={user.username}
+              email={user.email}
+              address={user.address}
+              phone={user.phone}
+              website={user.website}
+              company={user.company}
+            />
           ))}
         </div>
       </main>
-
-      {isModalOpen && <UserModal onClose={() => setModalOpen(false)} onSubmit={handleAddUser} />}
     </div>
   )
 }

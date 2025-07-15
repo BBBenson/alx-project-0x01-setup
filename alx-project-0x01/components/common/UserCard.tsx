@@ -1,5 +1,5 @@
-import type { UserProps } from "@/interfaces"
 import type React from "react"
+import type { UserProps } from "@/interfaces"
 
 const UserCard: React.FC<UserProps> = ({ id, name, username, email, address, phone, website, company }) => {
   return (
@@ -27,6 +27,9 @@ const UserCard: React.FC<UserProps> = ({ id, name, username, email, address, pho
           {address.street}, {address.suite}
           <br />
           {address.city}, {address.zipcode}
+        </p>
+        <p className="text-xs text-gray-500 mt-1">
+          Coordinates: {address.geo.lat}, {address.geo.lng}
         </p>
       </div>
 
