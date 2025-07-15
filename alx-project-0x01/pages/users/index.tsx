@@ -5,7 +5,8 @@ import type React from "react"
 import UserCard from "@/components/common/UserCard"
 import UserModal from "@/components/common/UserModal"
 import Header from "@/components/layout/Header"
-import type { UserData, UserProps } from "@/interfaces"
+import type { UserData } from "@/interfaces"
+import type { UserProps } from "@/interfaces"
 import { useState } from "react"
 
 interface UsersPageProps {
