@@ -5,7 +5,8 @@ import type React from "react"
 import PostCard from "@/components/common/PostCard"
 import PostModal from "../../components/common/PostModal"
 import Header from "@/components/layout/Header"
-import { PostData, PostProps } from "@/interfaces"
+import { PostData } from "@/interfaces"
+import { PostProps } from "@/interfaces"
 import { useState } from "react"
 
 interface PostsPageProps {
