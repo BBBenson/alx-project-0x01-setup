@@ -1,6 +1,8 @@
 "use client"
 
-import type { PostData, PostModalProps } from "@/interfaces"
+import { PostData } from "@/interfaces"
+import { PostModalProps } from "@/interfaces";
+
 import type React from "react"
 import { useState } from "react"
 
