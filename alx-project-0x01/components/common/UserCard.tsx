@@ -1,5 +1,5 @@
-import type React from "react"
 import type { UserProps } from "@/interfaces"
+import type React from "react"
 
 const UserCard: React.FC<UserProps> = ({ id, name, username, email, address, phone, website, company }) => {
   return (
